@@ -8,10 +8,12 @@ public class GridCreator : MonoBehaviour
     public int columns = 10;
     public float cellSize = 1;
     public Vector3 offset;
+    public Vector3 xzOffset = new Vector3(.5f,0,.5f);
     public int value = 1;
     public BaseDatosHandler items;
     //public BaseDatosHandler level;
     private MyGrid grid;
+
 
     private Tile[,] celdas;
 
@@ -162,12 +164,12 @@ public class GridCreator : MonoBehaviour
 
                 if(colores[i,j]!=0)
                 {
-                    Instantiate(items.objectToInstatiate, grid.debugTextArray[i, j].transform.position, Quaternion.identity);
+                    Instantiate(items.objectToInstatiate, (grid.debugTextArray[i, j].transform.position) + xzOffset, Quaternion.identity);
                 }
                 if (letras[i, j] != 0 || letras[i,j]!=1 || letras[i, j] != 2 || letras[i, j] != 3)
                 {
                     Debug.Log(items.objectToInstatiate2.name);
-                    Instantiate(items.objectToInstatiate2, grid.debugTextArray[i, j].transform.position + items.objectToInstatiate2.transform.position, items.objectToInstatiate2.transform.rotation);
+                    Instantiate(items.objectToInstatiate2, grid.debugTextArray[i, j].transform.position + items.objectToInstatiate2.transform.position + xzOffset, items.objectToInstatiate2.transform.rotation);
                 }
             }
         }
