@@ -8,6 +8,8 @@ public class BaseDatosHandler : MonoBehaviour {
 
     public BaseDatosObjeto bd;
     public Tiles tile;
+    public List<string> levels;
+    public int actualLevel;
 
     public GameObject objectToInstatiate;
     public GameObject objectToInstatiate2;
@@ -17,7 +19,7 @@ public class BaseDatosHandler : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         string datos = File.ReadAllText(Application.dataPath + "/JSON/objetos.json");
-        string datosUWU = File.ReadAllText(Application.dataPath + "/JSON/Nivel2.json");
+        string datosUWU = File.ReadAllText(Application.dataPath + "/JSON/"+levels[actualLevel]+".json");
         //Debug.Log(datosUWU);
         bd = JsonUtility.FromJson<BaseDatosObjeto>(datos);
         tile = JsonUtility.FromJson<Tiles>(datosUWU);

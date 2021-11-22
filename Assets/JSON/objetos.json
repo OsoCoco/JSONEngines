@@ -102,33 +102,33 @@
         },
         {
             "id": 20,
-            "nombre": "Wall Bottom",
-            "code": "WB"
-        },
-        {
-            "id": 21,
             "nombre": "Wall Left",
             "code": "WL"
         },
         {
-            "id": 22,
-            "nombre": "Wall Right",
-            "code": "WR"
-        },
-        {
-            "id": 23,
+            "id": 21,
             "nombre": "Wall Top",
             "code": "WT"
         },
         {
+            "id": 22,
+            "nombre": "Wall Bottom",
+            "code": "WB"
+        },
+        {
+            "id": 23,
+            "nombre": "Wall Right",
+            "code": "WR"
+        },
+        {
             "id": 24,
-            "nombre": "Wall BL",
-            "code": "WBL"
+            "nombre": "Wall TR",
+            "code": "WTL"
         },
         {
             "id": 25,
-            "nombre": "Wall BR",
-            "code": "WBR"
+            "nombre": "Wall BL",
+            "code": "WBL"
         },
         {
             "id": 26,
@@ -143,12 +143,12 @@
         {
             "id": 28,
             "nombre": "Wall TL",
-            "code": "WTL"
+            "code": "WTR"
         },
         {
             "id": 29,
-            "nombre": "Wall TR",
-            "code": "WTR"
+            "nombre": "Wall BR",
+            "code": "WBR"
         }
 
     ]
