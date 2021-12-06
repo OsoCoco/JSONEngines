@@ -21,7 +21,7 @@ public class GridCreator : MonoBehaviour
 
     private int[,] letras;
 
-
+    public GameObject player;
     void Start()
     {
         grid = new MyGrid(rows, columns, cellSize, offset);
@@ -168,8 +168,13 @@ public class GridCreator : MonoBehaviour
                 }
                 if (letras[i, j] != 0 || letras[i,j]!=1 || letras[i, j] != 2 || letras[i, j] != 3)
                 {
-                    Debug.Log(items.objectToInstatiate2.name);
+                    //Debug.Log(items.objectToInstatiate2.name);
                     Instantiate(items.objectToInstatiate2, grid.debugTextArray[i, j].transform.position + items.objectToInstatiate2.transform.position + xzOffset, items.objectToInstatiate2.transform.rotation);
+                }
+
+                if(letras[i, j] == 16)
+                {
+                    Instantiate(player, (grid.debugTextArray[i, j].transform.position)   + Vector3.up * 2.0f , Quaternion.identity);
                 }
             }
         }
@@ -177,27 +182,5 @@ public class GridCreator : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            Vector3 dir = hit.point - transform.position;
-            dir.y = 0;
-            
-            Debug.DrawLine(Camera.main.transform.position, hit.point);
-
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            grid.SetValue(hit.point, value);
-            Debug.Log(hit.point);
-
-        }
-    }
+      
 }

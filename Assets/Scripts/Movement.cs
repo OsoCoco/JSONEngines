@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     public float gravity = -9.81f;
     public bool grounded;
     private Vector3 playerVelocity;
-    public GameObject showMovePositon;
+    //public GameObject showMovePositon;
     public float angle;
     private Vector3 move;
     private Vector3 dashV = Vector3.forward;
@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     }
     void LateUpdate()
     {
-        showMovePositon.transform.position = transform.position + move * 2f;
+        //showMovePositon.transform.position = transform.position + move * 2f;
     }
     // Update is called once per frame
     void Update()
@@ -59,10 +59,10 @@ public class Movement : MonoBehaviour
             ctrl.Move(move * Time.deltaTime * moveSpeed);
             ctrl.Move(playerVelocity * Time.deltaTime);
 
-            Vector3 targetDir = showMovePositon.transform.position - transform.position;
-            dashV = targetDir;
+           // Vector3 targetDir = showMovePositon.transform.position - transform.position;
+            //dashV = targetDir;
 
-            angle = Vector3.Angle(targetDir, transform.forward);
+            //angle = Vector3.Angle(targetDir, transform.forward);
 
             transform.Rotate(0,angle,0);
 

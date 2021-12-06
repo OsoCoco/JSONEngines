@@ -22,10 +22,13 @@ public class MyGrid
         this.offset = offset;
 
         gridArray = new int[width, height];
+       
         debugTextArray = new TextMesh[width, height];
 
+        
         //Debug.Log("Grid size: " + width + " , " + height);
 
+        
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
             for (int z = 0; z < gridArray.GetLength(0); z++)
@@ -33,11 +36,11 @@ public class MyGrid
                 //Debug.Log(x + "," + z);
 
                 debugTextArray[x, z] = DebugText(gridArray[x, z].ToString(), null, GetWorldPosition(x, z) + new Vector3(cellSize, 0, cellSize) * .5f, 12, Color.white, TextAnchor.MiddleCenter);//Agregar offset 
-                Debug.DrawLine(GetWorldPosition(x, z), GetWorldPosition(x, z + 1), Color.white, 100f);
-                Debug.DrawLine(GetWorldPosition(x, z), GetWorldPosition(x + 1, z), Color.white, 100f);
+               //Debug.DrawLine(GetWorldPosition(x, z), GetWorldPosition(x, z + 1), Color.white, 100f);
+               // Debug.DrawLine(GetWorldPosition(x, z), GetWorldPosition(x + 1, z), Color.white, 100f);
             }
-            Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-            Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
+            //Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
+            //Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
         }
     }
 
@@ -90,7 +93,7 @@ public class MyGrid
     public static TextMesh DebugText(string text, Transform parent = null, Vector3 lPos = default(Vector3), int fontSize = 40, Color? color = null, TextAnchor textAnchor = TextAnchor.UpperLeft, TextAlignment textAlign = TextAlignment.Left, int sortingOrder = 5000)
     {
         if (color == null) { color = Color.white; }
-        return CreateText(parent, text, lPos, fontSize, (Color)color, textAnchor, textAlign, sortingOrder);
+        return CreateText(parent, null, lPos, fontSize, (Color)color, textAnchor, textAlign, sortingOrder);
     }
 
     public static TextMesh CreateText(Transform parent, string text, Vector3 lPos, int fontSize, Color color, TextAnchor textAnchor, TextAlignment textAlign, int sortingOrder)
